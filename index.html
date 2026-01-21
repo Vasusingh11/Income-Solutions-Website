@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Solutions Inc - Private Credit & Income-Focused Lending</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1a1a1a;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .notice {
+            background: #f8f8f8;
+            padding: 1rem 1.5rem;
+            border-left: 3px solid #666;
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .notice strong {
+            color: #333;
+        }
+
+        /* About */
+        .about {
+            text-align: center;
+        }
+
+        .about p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        /* Business Model */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .business-card {
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .business-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .business-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Characteristics */
+        .characteristics-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .characteristics-list li {
+            padding: 0.75rem 0;
+            color: #555;
+            list-style-position: inside;
+        }
+
+        /* Risk Section */
+        .risk-section {
+            background: #f5f5f5;
+        }
+
+        .risk-section p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Disclaimer Box */
+        .disclaimer-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+
+        .disclaimer-box h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .disclaimer-box p {
+            color: #856404;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #333;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: flex;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Income Solutions Inc</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#business">Business</a>
+                <a href="#notes">Notes</a>
+                <a href="#risk">Risk</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Private Credit & Income-Focused Lending</h1>
+            <p>Income Solutions Inc engages in private lending activities, primarily originating and holding asset-based and secured loans to small businesses and real estate operators throughout the United States.</p>
+            <div class="notice">
+                <strong>Important Notice:</strong> This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container-narrow">
+            <h2 class="section-title">About Income Solutions Inc</h2>
+            <p>Income Solutions Inc is a Wyoming corporation engaged in the business of private lending. The Company focuses on originating, acquiring, and managing loans that are generally secured by real estate or other tangible business assets.</p>
+            <p>The Company seeks to deploy capital into income-producing lending opportunities and manages its portfolio through structured underwriting, disciplined risk assessment, and ongoing monitoring of its lending activities.</p>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section id="business">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">What We Do</h2>
+            <div class="business-grid">
+                <div class="business-card">
+                    <h3>Private Lending</h3>
+                    <p>Income Solutions Inc originates and holds loans primarily to small and medium-sized businesses and real estate operators. These loans are structured to meet specific commercial or project-based financing needs.</p>
+                </div>
+                <div class="business-card">
+                    <h3>Asset-Focused Underwriting</h3>
+                    <p>Loan decisions are based primarily on collateral value, deal structure, and asset quality rather than solely on borrower creditworthiness.</p>
+                </div>
+                <div class="business-card">
+                    <h3>Income Generation</h3>
+                    <p>The Company generates revenue primarily through interest earned on loans held on its balance sheet and, in certain cases, origination fees associated with lending transactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Debt Securities Overview -->
+    <section id="notes">
+        <div class="container-narrow">
+            <h2 class="section-title">Overview of Debt Securities</h2>
+            <p>From time to time, Income Solutions Inc may issue fixed-rate debt securities in the form of promissory notes. These notes represent unsecured obligations of the Company and are intended for investors who do not require immediate liquidity.</p>
+            <p>The notes are not publicly traded, are subject to restrictions on transferability, and are offered only pursuant to exemptions from registration under applicable federal and state securities laws.</p>
+        </div>
+    </section>
+
+    <!-- Key Characteristics -->
+    <section>
+        <div class="container-narrow">
+            <h2 class="section-title">Key Characteristics</h2>
+            <ul class="characteristics-list">
+                <li>Fixed-rate promissory notes</li>
+                <li>Sixty (60) month stated maturity from the issue date</li>
+                <li>Interest payable quarterly, either in cash or reinvested at the investor's election</li>
+                <li>Redemption available after an initial holding period, subject to advance written notice</li>
+                <li>Unsecured obligations of the Company</li>
+                <li>Senior to equity interests and junior to secured creditors</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Use of Proceeds -->
+    <section>
+        <div class="container-narrow">
+            <h2 class="section-title">Use of Capital</h2>
+            <p>Net proceeds from the issuance of debt securities are intended to be used for general corporate purposes, including but not limited to originating and acquiring secured and asset-based loans and funding working capital needs of the Company.</p>
+        </div>
+    </section>
+
+    <!-- Reporting -->
+    <section>
+        <div class="container-narrow">
+            <h2 class="section-title">Investor Reporting</h2>
+            <p>Income Solutions Inc provides periodic performance reporting that may include high-level lending metrics such as loan volume originated, default rates, and missed payment statistics.</p>
+            <p>A summarized balance sheet may be provided to investors periodically through electronic delivery or upon request.</p>
+        </div>
+    </section>
+
+    <!-- Risk Section -->
+    <section id="risk" class="risk-section">
+        <div class="container-narrow">
+            <h2 class="section-title">Risk Factors</h2>
+            <p>Investments in private debt securities involve a high degree of risk. The promissory notes issued by the Company are unsecured obligations, are not insured or guaranteed by any governmental agency, are not publicly traded, and may be illiquid for an extended period of time.</p>
+            <p>The Company's ability to make payments depends on its financial performance, borrower repayment behavior, market conditions, and other factors described in the applicable offering documents.</p>
+            <p>Prospective investors should carefully review all risk factors and consult their own legal, tax, and financial advisors before making any investment decision.</p>
+        </div>
+    </section>
+
+    <!-- Investor Eligibility -->
+    <section>
+        <div class="container-narrow">
+            <h2 class="section-title">Investor Suitability</h2>
+            <p>Any investment in the Company's debt securities is intended only for investors who meet applicable suitability standards, including financial sophistication and the ability to bear the economic risk of a long-term, illiquid investment.</p>
+            <p>Securities are offered only pursuant to applicable exemptions from registration and only to investors deemed suitable by the Company.</p>
+        </div>
+    </section>
+
+    <!-- No Offer Disclaimer -->
+    <section>
+        <div class="container-narrow">
+            <div class="disclaimer-box">
+                <h3>Important Disclosure</h3>
+                <p>This website does not constitute an offer to sell or a solicitation of an offer to buy any securities. Any offer of securities, if made, will be made only by means of confidential offering documents and only to qualified investors in jurisdictions where such offering is permitted by law.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container-narrow">
+            <h2 class="section-title" style="text-align: center;">Contact Information</h2>
+            <p style="text-align: center; color: #555; margin-bottom: 1rem;">For general information about Income Solutions Inc, please contact:</p>
+            <p style="text-align: center; color: #555; margin-bottom: 2rem;">
+                <strong>Email:</strong> admin@income-solutions.net<br>
+                <strong>Principal Office:</strong> Wyoming, United States
+            </p>
+            <p style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 2rem;">Investment-related information, if provided, is made available only after appropriate eligibility review.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; Income Solutions Inc. All rights reserved.</p>
+            <p>Private offering. Securities offered pursuant to applicable exemptions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create mailto link
+            const mailtoLink = `mailto:admin@income-solutions.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = 'Opening your email client...';
+            messageDiv.className = 'form-message success';
+            messageDiv.style.display = 'block';
+            
+            // Reset form
+            setTimeout(() => {
+                this.reset();
+                messageDiv.style.display = 'none';
+            }, 3000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
